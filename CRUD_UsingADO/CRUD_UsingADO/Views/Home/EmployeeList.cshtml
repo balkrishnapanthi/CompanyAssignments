@@ -1,0 +1,39 @@
+﻿@model List<Employee>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Employee List";
+}
+<a asp-controller="home" asp-action="AddEmployeeDetails" class="btn btn-primary">Add More Employees</a>
+        <h3>
+            List of all employees
+        </h3>
+        <table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Employee Code</th>
+             <th scope="col">Employee Department Code</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Date Of Birth</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    @{ 
+                foreach (var employee in Model)
+                {
+                    <tr>
+                        <th scope="row">@employee.EmpCode</th>
+                        <td>@employee.DeptCode</td>
+                        <td>@employee.EmpName</td>
+                        <td>@DateTime.Parse(@employee.DateOfBirth.ToString()).ToString("dd-MMM-yyyy")</td>
+                        <td>@employee.Email</td>
+
+                        <td><a asp-route="ViewByCode" asp-route-id="@employee.EmpCode" class="btn btn-primary col-4">Details</a><a asp-route="update" asp-route-id="@employee.EmpCode" class="btn btn-success col-4">Edit</a><a asp-route="Delete" asp-route-id="@employee.EmpCode" class="btn btn-danger col-4">Delete</a></td>
+                    </tr>
+
+
+                }           
+        
+    }
+</table>

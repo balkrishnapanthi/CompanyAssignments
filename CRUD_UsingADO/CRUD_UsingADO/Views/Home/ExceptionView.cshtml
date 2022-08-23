@@ -1,0 +1,8 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "No Records Found";
+}
+<h2>Oops!!</h2>
+<h3>There is an exception</h3>
+<h4>Exception Message: </h4><h5>@ViewBag.Message</h5>
+<a asp-route="Home" class="btn btn-primary col-4" style="margin-top:10px;">Back to home</a> @*asp-route is the name of route*@

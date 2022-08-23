@@ -1,0 +1,24 @@
+﻿@model Employee
+@{
+    Layout="~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Add Employee Details";
+}
+<h2>Add New Employee</h2>
+<form asp-action="AddEmployeeDetails" asp-controller="home" class="form form-control col-lg-6" method="post">
+    <label asp-for="EmpCode">Employee Code :</label>
+    <input type="number" asp-for="EmpCode" class="form-control" required/>
+    <label asp-for="DeptCode">Employee Department Code :</label>
+    <input type="number" asp-for="DeptCode" class="form-control" required />
+    <label asp-for="EmpName">Employee Name :</label>
+    <input type="text" asp-for="EmpName" class="form-control" />
+    <label asp-for="DateOfBirth">Employee Date Of Birth :</label>
+    <input type="date" asp-for="DateOfBirth" class="form-control" required />
+    <div>
+    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+    <label asp-for="Email">Employee Email :</label>
+    <input type="text" asp-for="Email" class="form-control" required />
+    <input type="submit" class="btn btn-primary " style="margin-top:10px;" />
+
+</form>
+<a asp-route="Home" class="btn btn-primary col-4" style="margin-top:10px;">Back to home</a> @*asp-route is the name of route*@
